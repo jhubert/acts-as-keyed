@@ -1,18 +1,19 @@
 module ActsAsKeyed
   def self.included(base)
-    base.extend ClassMethods  
+    base.extend ClassMethods
   end
+
   module ClassMethods
     def acts_as_keyed(options={})
       class_inheritable_accessor :options
       options[:size] ||= 10
-      options[:chars] ||= ('a'..'z').to_a - ['a','e','i','o','u'] + (1..9).to_a
+      options[:chars] ||= ('a'..'z').to_a + ('A'..'Z').to_a + (1..9).to_a - ['l','I','O']
       self.options = options
 
       raise ArgumentError, "#{self.name} is missing key column" if columns_hash['key'].nil?
 
       before_validation_on_create :create_key 
-      
+
       attr_protected :key
 
       class << self
@@ -24,10 +25,11 @@ module ActsAsKeyed
           end
         end
       end
-      
+    
       include InstanceMethods
     end
   end
+
   module InstanceMethods
 
     def to_param
@@ -51,3 +53,5 @@ module ActsAsKeyed
     end
   end
 end
+
+ActiveRecord::Base.send :include, ActsAsKeyed

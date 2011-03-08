@@ -12,7 +12,7 @@ module ActsAsKeyed
 
       raise ArgumentError, "#{self.name} is missing key column" if columns_hash['key'].nil?
 
-      before_validation_on_create :create_key 
+      before_validation_on_create :create_key
 
       attr_protected :key
 
@@ -34,6 +34,11 @@ module ActsAsKeyed
 
     def to_param
       options[:as_param] ? self.key : self.id.to_s
+    end
+
+    def regenerate_key!
+      self.create_key
+      self.save
     end
 
     protected

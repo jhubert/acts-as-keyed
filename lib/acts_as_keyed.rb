@@ -12,7 +12,11 @@ module ActsAsKeyed
 
       raise ArgumentError, "#{self.name} is missing key column" if columns_hash['key'].nil?
 
-      before_validation_on_create :create_key
+      if Rails.version < '3'
+        before_validation_on_create :create_key
+      else
+        before_validation :create_key, :on => :create
+      end
 
       attr_protected :key
 

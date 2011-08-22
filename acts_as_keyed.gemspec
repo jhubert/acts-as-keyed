@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Jeremy Hubert"]
   s.email       = ["jhubert@gmail.com"]
   s.homepage    = "http://github.com/jhubert/acts_as_keyed"
-  s.summary     = %q{Automatically key an active record model}
+  s.summary     = %q{Automatically key an active record model with a unique key}
   s.description = %q{A simple plugin that automatically generates a key for a model on create. It takes care of protecting the key, automatically generating it and making sure it is unique.}
 
   s.rubyforge_project = "acts_as_keyed"

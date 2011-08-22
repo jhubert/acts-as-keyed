@@ -58,7 +58,7 @@ module ActsAsKeyed
     def random_key
       code_array=[]
       1.upto(options[:size]) { code_array << options[:chars][rand(options[:chars].length)] }
-      code_array.to_s
+      code_array.join('')
     end
   end
 end

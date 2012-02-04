@@ -12,10 +12,10 @@ Gem::Specification.new do |s|
   s.summary     = %q{Automatically key an active record model with a unique key}
   s.description = %q{A simple plugin that automatically generates a key for a model on create. It takes care of protecting the key, automatically generating it and making sure it is unique.}
 
+  s.add_dependency "activerecord", "~> 3.0"
   s.rubyforge_project = "acts_as_keyed"
 
   s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.test_files    = `git ls-files -- test/*`.split("\n")
   s.require_paths = ["lib"]
 end

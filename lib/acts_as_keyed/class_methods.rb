@@ -10,7 +10,7 @@ module ActsAsKeyed
 
       self.options = options
 
-      raise ArgumentError, "#{self.name} is missing key column" if ActiveRecord::Base.connection.table_exists?(self.table_name) && columns_hash['key'].nil?
+      raise MissingKeyColumnError if ActiveRecord::Base.connection.table_exists?(self.table_name) && columns_hash['key'].nil?
 
       attr_protected :key
 

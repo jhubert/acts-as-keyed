@@ -53,26 +53,19 @@ class ActsAsKeyedTest < ActsAsKeyedBaseTest
   test "should raise an error if no unique keys can be found easily" do
     owk_setup(:chars => ['a'], :size => 1)
 
-    error = false
-    begin
+    assert_raise ActsAsKeyed::NoAvailableKeysError do
       2.times do
         o = ObjectWithKey.create
       end
-    rescue ActsAsKeyed::NoAvailableKeys
-      error = true
     end
-
-    assert error
   end
 
   test "should fail if object doesn't have key column" do
     output = nil
-    begin
+
+    assert_raise ActsAsKeyed::MissingKeyColumnError do
       ObjectWithoutKey.acts_as_keyed
-    rescue ArgumentError => e
-      output = e.message
     end
-    assert_equal "ObjectWithoutKey is missing key column", output
   end
 
   private

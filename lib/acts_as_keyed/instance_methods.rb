@@ -19,7 +19,7 @@ module ActsAsKeyed
         break if self.class.count(:conditions => { :key => k }) == 0
         k = nil
       end
-      raise NoAvailableKeys if k.nil?
+      raise NoAvailableKeysError if k.nil?
       self.key = k
     end
 

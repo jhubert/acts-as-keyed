@@ -10,13 +10,21 @@ module ActsAsKeyed
       self.save
     end
 
+    def key=(val)
+      write_attribute(options[:column], val)
+    end
+
+    def key
+      read_attribute(options[:column])
+    end
+
     protected
 
     def create_key
       k = nil
       100.times do
         k = random_key
-        break if self.class.count(:conditions => { :key => k }) == 0
+        break if !self.class.key_exists?(k)
         k = nil
       end
       raise NoAvailableKeysError if k.nil?

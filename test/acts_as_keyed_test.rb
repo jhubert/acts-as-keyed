@@ -60,6 +60,20 @@ class ActsAsKeyedTest < ActsAsKeyedBaseTest
     end
   end
 
+  test "should use a different column if specified as a string" do
+    ObjectWithoutKey.acts_as_keyed(:column => 'name')
+
+    o = ObjectWithoutKey.create()
+    assert_not_nil o.name
+  end
+
+  test "should use a different column if specified as a symbol" do
+    ObjectWithoutKey.acts_as_keyed(:column => :name)
+
+    o = ObjectWithoutKey.create()
+    assert_not_nil o.name
+  end
+
   test "should fail if object doesn't have key column" do
     output = nil
 

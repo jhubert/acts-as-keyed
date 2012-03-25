@@ -11,6 +11,7 @@ http://tantek.pbworks.com/w/page/19402946/NewBase60
 * **as_params** [*False*] If true, this will be used as the id of the object when creating URLs and you will be able to Object.find(key)
 * **size** - [_10_] The number of characters to make the key
 * **chars** - [_NewBase60_] An array of Chars to use when generating the key
+* **column** - [*key*] The name of the column to store the key. Accepts a symbol or string.
 
 ## Example
 

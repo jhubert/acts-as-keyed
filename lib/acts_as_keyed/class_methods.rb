@@ -29,8 +29,16 @@ module ActsAsKeyed
         def key_exists?(k)
           exists?(["#{options[:column]} = ?", k])
         end
+
+        def generate_key(size = nil)
+          size ||= options[:size]
+
+          code_array=[]
+          1.upto(options[:size]) { code_array << options[:chars][rand(options[:chars].length)] }
+          code_array.join('')
+        end
       end
-    
+
       include InstanceMethods
     end
   end

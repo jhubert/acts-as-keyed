@@ -16,11 +16,12 @@ class ActsAsKeyedTest < ActsAsKeyedBaseTest
     assert_not_nil o.key
   end
 
-  test "should generate key based on custom characters" do
-    owk_setup(:chars => ['a'])
+  test "should generate a key based on a set of characters in the chars option" do
+    character_set = %w(a b c)
+    owk_setup(:chars => %w(a b c))
 
     o = ObjectWithKey.create
-    assert_equal 'aaaaaaaaaa', o.key
+    assert_contains_only character_set, o.key
   end
 
   test "should generate key based on size parameter" do
@@ -86,5 +87,9 @@ class ActsAsKeyedTest < ActsAsKeyedBaseTest
 
   def owk_setup(options = {})
     ObjectWithKey.acts_as_keyed(options)
+  end
+
+  def assert_contains_only(expected_characters, actual_string, message=nil)
+    assert actual_string =~ Regexp.new("^[#{expected_characters.join}]+$"), "#{actual_string} contains more than just '#{expected_characters.join}'"
   end
 end

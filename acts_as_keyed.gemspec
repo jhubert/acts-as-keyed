@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.description = %q{A simple plugin that automatically generates a key for a model on create. It takes care of protecting the key, automatically generating it and making sure it is unique.}
 
   s.add_dependency "activerecord", "~> 4.0"
+  s.add_dependency "protected_attributes", "~> 1.0"
   s.add_development_dependency "rake"
   s.add_development_dependency "activesupport", "~> 4.0"
   s.add_development_dependency "sqlite3-ruby"

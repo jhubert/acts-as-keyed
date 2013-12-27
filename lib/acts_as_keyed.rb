@@ -1,4 +1,5 @@
 require 'active_record'
+require 'protected_attributes'
 require 'acts_as_keyed/errors'
 require 'acts_as_keyed/class_methods'
 require 'acts_as_keyed/instance_methods'

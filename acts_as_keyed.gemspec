@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = "acts_as_keyed"
   s.version     = ActsAsKeyed::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Jeremy Hubert"]
+  s.authors     = ["Jeremy Baker"]
   s.email       = ["jhubert@gmail.com"]
   s.homepage    = "https://github.com/jhubert/acts-as-keyed"
   s.summary     = %q{Automatically key an active record model with a unique key}

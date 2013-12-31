@@ -1,6 +1,8 @@
-require 'bundler'
+require "rubygems"
+require "bundler/setup"
 require 'rake/testtask'
-require 'rake/rdoctask'
+require 'rdoc/task'
+require 'appraisal'
 
 desc 'Default: run unit tests.'
 task :default => :test

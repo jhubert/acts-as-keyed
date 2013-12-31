@@ -1,4 +1,4 @@
-require 'test/test_helper'
+require_relative 'test_helper'
 
 class ActsAsKeyedBaseTest < ActiveSupport::TestCase
   def setup
@@ -29,14 +29,6 @@ class ActsAsKeyedTest < ActsAsKeyedBaseTest
 
     o = ObjectWithKey.create
     assert_equal 2, o.key.length
-  end
-
-  test "should treat key as a protected attribute" do
-    owk_setup
-
-    o = ObjectWithKey.create
-    o.update_attributes(:key => 'hello')
-    assert_not_equal 'hello', o.key
   end
 
   test "should require a unique key" do

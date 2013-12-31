@@ -15,8 +15,6 @@ module ActsAsKeyed
 
       raise MissingKeyColumnError if ActiveRecord::Base.connection.table_exists?(self.table_name) && columns_hash[options[:column]].nil?
 
-      attr_protected options[:column]
-
       class << self
         def find(*args)
           if self.options[:as_param] && args.first.is_a?(String)

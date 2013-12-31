@@ -1,0 +1,17 @@
+##################################################
+#  NOTE FOR UPGRADING FROM PRE-1.0 VERSION       #
+##################################################
+
+In order to support Rails 4, versions >1.0.0 of the gem no
+longer automatically protect the keyed column. Please make
+sure to protect the column manually in your application.
+
+If you are using Rails 3.x, you can use `attr_protected`:
+
+    attr_protected :key
+
+If you are using Rails 4.x, you can either use the
+protected_attributes gem or use strong parameters via
+the controller.
+
+----

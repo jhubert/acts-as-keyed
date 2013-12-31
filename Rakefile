@@ -1,6 +1,7 @@
 require 'bundler'
 require 'rake/testtask'
 require 'rake/rdoctask'
+require 'appraisal'
 
 desc 'Default: run unit tests.'
 task :default => :test

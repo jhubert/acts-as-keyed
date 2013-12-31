@@ -12,8 +12,12 @@ Gem::Specification.new do |s|
   s.summary     = %q{Automatically key an active record model with a unique key}
   s.description = %q{A simple plugin that automatically generates a key for a model on create. It takes care of protecting the key, automatically generating it and making sure it is unique.}
 
-  s.add_dependency "activerecord", "~> 3.0"
+  s.add_dependency "activerecord", ">= 3.0.0"
+  s.add_development_dependency "rake"
+  s.add_development_dependency "activesupport", ">= 3.0.0"
+  s.add_development_dependency "sqlite3-ruby"
   s.add_development_dependency "appraisal"
+
   s.rubyforge_project = "acts_as_keyed"
 
   s.files         = `git ls-files`.split("\n")

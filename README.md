@@ -1,4 +1,5 @@
 # ActsAsKeyed
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/jhubert/acts-as-keyed?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 A simple plugin that automatically generates a key for a model on create. It takes care of protecting the key, automatically generating it and making sure it is unique.
 
